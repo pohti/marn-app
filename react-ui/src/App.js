@@ -5,6 +5,7 @@ import client from './api/apolloClient'
 
 import Hello from './components/Hello';
 import Books from './components/Books';
+import CreateBook from './components/CreateBook';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
             <div className="navbar-nav mr-auto flex-row">
               <Link to="/" className="nav-link mr-2">Home</Link>
               <Link to="/books" className="nav-link mr-2">Books</Link>
+              <Link to="/create" className="nav-link mr-2">Create Book</Link>
             </div>
           </nav>
 
@@ -21,6 +23,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Hello />} />
               <Route path="/books" element={<Books />} />
+              <Route path="/create" element={<CreateBook />} />
             </Routes>
           </div>
         </BrowserRouter> 
