@@ -9,6 +9,17 @@ export const CREATE_BOOK_MUTATION = gql`
         }
     }
 `
+
+export const EDIT_BOOK_MUTATION = gql`
+    mutation Mutation($id: ID, $title: String, $year: Int) {
+        edit(id: $id, title: $title, year: $year) {
+            id
+            title
+            year
+        }
+    }
+`
+
 export const DELETE_BOOK_MUTATION = gql`
     mutation Mutation($id: ID) {
         delete(id: $id)
