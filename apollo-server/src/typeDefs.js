@@ -12,6 +12,7 @@ const typeDefs = gql`
     }
     type Mutation {
         create(title: String, year: Int): Book
+        delete(id: ID): ID
     }
 `;
 
