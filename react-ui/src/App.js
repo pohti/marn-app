@@ -1,11 +1,16 @@
 import './App.css';
 import { Link, BrowserRouter, Route, Routes } from 'react-router-dom';
-import { ApolloProvider } from '@apollo/client';
-import client from './api/apolloClient'
+import { ApolloProvider, ApolloClient } from '@apollo/client';
+import { InMemoryCache } from "@apollo/client/cache"
 
 import Hello from './components/Hello';
 import Books from './components/Books';
 import CreateBook from './components/CreateBook';
+
+const client = new ApolloClient({
+  uri: 'http://localhost:4000',
+  cache: new InMemoryCache()
+})
 
 function App() {
   return (

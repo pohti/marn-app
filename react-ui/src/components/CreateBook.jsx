@@ -1,20 +1,15 @@
 import { useState } from 'react';
-import { gql, useMutation } from '@apollo/client'
-
-const CREATE_BOOK_MUTATION = gql`
-    mutation Mutation($title: String, $year: Int) {
-        create(title: $title, year: $year) {
-            id
-            title
-            year
-        }
-    }
-`
+import { useMutation } from '@apollo/client'
+import { BOOKS_QUERY, CREATE_BOOK_MUTATION } from '../graphql'
 
 const CreateBook = () => {
     const [title, setTitle] = useState('');
     const [year, setYear] = useState('');
-    const [createMutation] = useMutation(CREATE_BOOK_MUTATION);
+    const [createMutation] = useMutation(CREATE_BOOK_MUTATION, {
+        refetchQueries: [
+            {query: BOOKS_QUERY}
+        ],
+    });
 
     const handleSubmit = evt => {
         evt.preventDefault();
