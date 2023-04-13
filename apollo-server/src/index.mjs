@@ -1,18 +1,9 @@
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone'
-import gql from 'graphql-tag'
 
-const typeDefs = gql`
-    type Query {
-        hello: String
-    }
-`;
+import resolvers from './resolver.mjs'
+import typeDefs from './typeDefs.js'
 
-const resolvers = {
-    Query: {
-        hello: () => 'Hello world!'
-    }
-};
 
 const server = new ApolloServer({ typeDefs, resolvers });
 
